@@ -658,7 +658,7 @@ const App = () => {
 
   const submitScore = async () => {
     if (!playerName.trim()) {
-      alert('Por favor ingresa tu nombre');
+      
       return;
     }
 
@@ -680,12 +680,12 @@ const App = () => {
         body: JSON.stringify(scoreData)
       });
       
-      alert('¡Puntuación guardada!');
+    
       setShowModal(false);
       loadLeaderboard();
     } catch (error) {
       console.error('Error al guardar puntuación:', error);
-      alert('Error al guardar. Intenta de nuevo.');
+      
     }
   };
 
@@ -752,7 +752,7 @@ const App = () => {
         <strong>Controles PC:</strong> ← → Mover | Espacio Saltar<br/>
         <strong>Móvil:</strong> Usa los botones en pantalla<br/>
         <strong>Objetivo:</strong> Recoge regalos y evita obstáculos. ¡Cada regalo suma +5 segundos!<br/>
-        <strong>⚠️ DIFICULTAD EXTREMA:</strong> Plataformas móviles 🟠, obstáculos aleatorios 🔺🔥❄️
+        <strong>¡Buena suerte!</strong>
       </div>
 
       <div className="game-container">
@@ -773,7 +773,7 @@ const App = () => {
 
       <div className="controls">
         <button className="btn" onClick={startGame}>
-          {gameStarted ? 'Reiniciar Juego' : 'Iniciar Juego'}
+          {gameStarted} Iniciar 
         </button>
       </div>
 
@@ -851,7 +851,7 @@ const App = () => {
             />
             <br/><br/>
             <button className="btn" onClick={submitScore}>Guardar Puntuación</button>
-            <button className="btn" onClick={() => setShowModal(false)}>Cancelar</button>
+            <button className='btn' onClick={startGame}>Reiniciar</button>
           </div>
         </div>
       )}
