@@ -331,6 +331,19 @@ const App = () => {
     }
   };
 
+  const drawMobs = (ctx) => {
+    // Aquí puedes agregar lógica para dibujar enemigos si decides incluirlos
+    if(imagesRef.current.loaded && imagesRef.current.mob) {
+      // ctx.drawImage(imagesRef.current.mob, mob.x, mob.y, mob.w, mob.h);
+    }else{
+      // Boceto temporal
+      ctx.fillStyle = '#0000ff';
+      ctx.fillRect(mob.x, mob.y, mob.w, mob.h);
+    }
+    
+
+  }
+
   // ========================================
   // 🎁 DIBUJO DE REGALOS - REEMPLAZA CON TU IMAGEN
   // ========================================
@@ -578,6 +591,7 @@ const App = () => {
         
         game.timeRemaining += game.timeBonus;
         setTimeRemaining(game.timeRemaining);
+        p.speed += 0.1;
         
         addNewGift();
         
@@ -593,6 +607,7 @@ const App = () => {
       game.gameOverReason = '¡Caíste al vacío! ⬇️';
       setGameOverReason('¡Caíste al vacío! ⬇️');
       endGame();
+      
     }
   };
 
@@ -637,6 +652,9 @@ const App = () => {
     game.gameEnded = true;
     setCanSubmit(true);
     setShowModal(true);
+    p.speed = 5;
+    game.gameStarted = false;
+    setGameStarted(false);
     if (game.animationId) {
       cancelAnimationFrame(game.animationId);
     }
