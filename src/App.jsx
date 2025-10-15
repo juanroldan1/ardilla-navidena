@@ -34,6 +34,8 @@ const App = () => {
     obstacleSpawnInterval: 3000
   });
 
+  
+
   const [collected, setCollected] = useState(0);
   const [totalGifts, setTotalGifts] = useState(0);
   const [percentage, setPercentage] = useState(0);
